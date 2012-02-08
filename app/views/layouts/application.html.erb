@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>F2fb</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+
+    <div id="fbconnect">
+      <div id="fb-root"></div>
+      <script src="http://connect.facebook.net/en_US/all.js"></script>
+      <script>
+        FB.init({
+          appId  : '<%= FBK[:client_id] %>',
+          status : true, // check login status
+          cookie : true, // enable cookies to allow the server to access the session
+          xfbml  : true,  // parse XFBML
+          channelUrl  : '<%#= APP_CONFIG['fbapp_return'] %>/',  // Channel URL added to fix unclosed popup in IE
+          oauth  : true
+        });
+      </script>
+    </div>
+<% if cookies["fbsr_#{FBK[:client_id]}"].nil? %>
+
+<!--    <fb:login-button length="long" onlogin="location.href = '<%#= fb_auth_path %>'" perms="<%= FBK['perms'] %>" >Integrate facebook login</fb:login-button> -->
+<fb:login-button length="long" onlogin="location.href = '<%= fb_auth_path  %>'" perms="<%= FBK[:perms] %>"></fb:login-button>
+
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>
