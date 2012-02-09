@@ -4,8 +4,10 @@ F2fb::Application.routes.draw do
   #get "home/index"
   match 'fb_auth'=> 'home#index' ,:as=>'fb_auth'
 
-
+  match 'facebook_loggedin'=>'facebook#auth',:as=>'fb_loggedin'
   resources :home
+ 
+  resources :facebook
 
   root :to =>"home#index"
   # The priority is based upon order of creation:

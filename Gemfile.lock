@@ -45,6 +45,7 @@ GEM
     fb_graph (2.2.4)
       httpclient (>= 2.2.0.2)
       rack-oauth2 (>= 0.9.4)
+    flickraw (0.9.5)
     hike (1.2.1)
     httpclient (2.2.4)
     i18n (0.6.0)
@@ -123,6 +124,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   execjs
   fb_graph
+  flickraw
   jquery-rails
   mysql2
   rails (= 3.2.1)
